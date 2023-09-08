@@ -12,8 +12,6 @@ import tests.api.models.AddToCardRequestModel;
 import tests.api.models.CartResponseModel;
 import tests.api.models.ErrorModel;
 
-import java.util.Random;
-
 import static helpers.ApiAuthorization.getAuthToken;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -156,22 +154,21 @@ public class ShoppingCartTests extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Удаление товара из корзины отсутствующего в ней товара")
     public void deleteNotAddedProductFromCartShouldReturn404() {
-        int productId = new Random().nextInt(100, 10000000);
         String authToken = step("Получение авторизационного токена", () -> getAuthToken());
         ErrorModel response = step("Удаление товара из корзины", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)
                         .when()
-                        .delete(CART_PRODUCT_PATH + "/" + productId)
+                        .delete(CART_PRODUCT_PATH + "/" + PRODUCT_ID)
                         .then()
                         .spec(deleteProductFromCartResponse404Spec)
                         .extract().as(ErrorModel.class)
         );
         step("Валидация ответа", () ->
-               assertAll(
-                       () -> assertThat(response.getMessage()).withFailMessage("Неверное сообщение об ошибке").isEqualTo(PRODUCT_NOT_FOUND),
-                       () -> assertThat(response.getRequestId()).withFailMessage("requestId не должен быть пустым").isNotNull()
-               )
+                assertAll(
+                        () -> assertThat(response.getMessage()).withFailMessage("Неверное сообщение об ошибке").isEqualTo(PRODUCT_NOT_FOUND),
+                        () -> assertThat(response.getRequestId()).withFailMessage("requestId не должен быть пустым").isNotNull()
+                )
         );
     }
 }
