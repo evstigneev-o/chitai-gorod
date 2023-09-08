@@ -1,0 +1,292 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "cost": {
+      "type": "integer"
+    },
+    "costWithSale": {
+      "type": "integer"
+    },
+    "costWithBonuses": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "weight": {
+      "type": "integer"
+    },
+    "addBonuses": {
+      "type": "integer"
+    },
+    "promoCode": {
+      "type": "null"
+    },
+    "products": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "authors": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "middleName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "isForeignAgent": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "middleName",
+                    "lastName",
+                    "url",
+                    "isForeignAgent"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "middleName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "isForeignAgent": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "middleName",
+                    "lastName",
+                    "url",
+                    "isForeignAgent"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "middleName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "isForeignAgent": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "firstName",
+                    "middleName",
+                    "lastName",
+                    "url",
+                    "isForeignAgent"
+                  ]
+                }
+              ]
+            },
+            "coauthors": {
+              "type": "array",
+              "items": {}
+            },
+            "goodsId": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "integer"
+            },
+            "stock": {
+              "type": "integer"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "fullPrice": {
+              "type": "integer"
+            },
+            "weight": {
+              "type": "integer"
+            },
+            "url": {
+              "type": "string"
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "picture": {
+              "type": "string"
+            },
+            "sale": {
+              "type": "boolean"
+            },
+            "preOrder": {
+              "type": "boolean"
+            },
+            "isBookmarks": {
+              "type": "boolean"
+            },
+            "price": {
+              "type": "integer"
+            },
+            "inSubscription": {
+              "type": "boolean"
+            },
+            "cost": {
+              "type": "integer"
+            },
+            "disabledBonuses": {
+              "type": "boolean"
+            },
+            "fullCost": {
+              "type": "integer"
+            },
+            "isMagic": {
+              "type": "boolean"
+            },
+            "nForM": {
+              "type": "null"
+            },
+            "status": {
+              "type": "null"
+            },
+            "category": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "url",
+                "slug"
+              ]
+            },
+            "adData": {
+              "type": "object",
+              "properties": {
+                "item_list_name": {
+                  "type": "string"
+                },
+                "product_shelf": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "item_list_name",
+                "product_shelf"
+              ]
+            }
+          },
+          "required": [
+            "title",
+            "authors",
+            "coauthors",
+            "goodsId",
+            "id",
+            "stock",
+            "quantity",
+            "fullPrice",
+            "weight",
+            "url",
+            "publisher",
+            "picture",
+            "sale",
+            "preOrder",
+            "isBookmarks",
+            "price",
+            "inSubscription",
+            "cost",
+            "disabledBonuses",
+            "fullCost",
+            "isMagic",
+            "nForM",
+            "status",
+            "category",
+            "adData"
+          ]
+        }
+      ]
+    },
+    "disabledProducts": {
+      "type": "array",
+      "items": {}
+    },
+    "preorderProducts": {
+      "type": "array",
+      "items": {}
+    },
+    "gifts": {
+      "type": "array",
+      "items": {}
+    }
+  },
+  "required": [
+    "cost",
+    "costWithSale",
+    "costWithBonuses",
+    "discount",
+    "weight",
+    "addBonuses",
+    "promoCode",
+    "products",
+    "disabledProducts",
+    "preorderProducts",
+    "gifts"
+  ]
+}

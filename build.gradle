@@ -13,7 +13,8 @@ def selenideVersion = "6.17.2",
     allureVersion = "2.21.0",
     jacksonVersion = "2.15.2",
     junitVersion = "5.9.3",
-    slf4jVersion = "2.0.7"
+    slf4jVersion = "2.0.7",
+    assertJVersion = "3.24.2"
 
 allure {
     report {
@@ -34,10 +35,13 @@ dependencies {
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.assertj:assertj-core:$assertJVersion"
     )
 }
 
@@ -56,5 +60,23 @@ tasks.withType(Test).configureEach {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task ui_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("ui")
+    }
+}
+
+task api_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("api")
+    }
+}
+
+task android_tests(type: Test) {
+    useJUnitPlatform{
+        includeTags("android")
     }
 }
