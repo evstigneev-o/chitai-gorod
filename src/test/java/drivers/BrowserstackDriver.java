@@ -40,7 +40,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         // and desired capabilities defined above
         try {
             return new RemoteWebDriver(
-                    new URL(config.baseUrl()), caps);
+                    new URL(config.baseBsUrl()), caps);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
