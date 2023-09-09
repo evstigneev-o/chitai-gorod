@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class BaseTest {
-    public static String mobileEnv = System.getProperty("envMobile","android_local");
+    public static String mobileEnv = System.getProperty("envMobile","android_remote");
     @BeforeAll
     public static void setUp() {
         if (mobileEnv.equals("android_remote")) {
