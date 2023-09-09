@@ -47,7 +47,7 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
-        Attach.screenshotAs("Last screenshot");
+        //Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         closeWebDriver();
         if(mobileEnv.equals("android_remote")){
