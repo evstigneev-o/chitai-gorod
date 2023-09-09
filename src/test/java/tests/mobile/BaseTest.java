@@ -34,9 +34,9 @@ public class BaseTest {
         step("Пропуск онбординга", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonSkip")).click()
         );
-        step("Пропуск включения уведомлений", () ->
-                $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonNotNow")).click()
-        );
+//        step("Пропуск включения уведомлений", () ->
+//                $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonNotNow")).click()
+//        );
         step("Выбор города", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonProceed")).click()
         );
@@ -48,11 +48,11 @@ public class BaseTest {
     @AfterEach
     public void tearDown() {
         //Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
+        //Attach.pageSource();
         closeWebDriver();
-        if(mobileEnv.equals("android_remote")){
-            String sessionId = sessionId().toString();
-            Attach.addVideo(sessionId);
-        }
+//        if(mobileEnv.equals("android_remote")){
+//            String sessionId = sessionId().toString();
+//            Attach.addVideo(sessionId);
+//        }
     }
 }
