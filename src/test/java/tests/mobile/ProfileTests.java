@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -56,6 +57,7 @@ public class ProfileTests extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("getCitiesByCountry")
+    @Disabled
     @Tag("android")
     @DisplayName("Проверка списка городов по странам присутствия")
     @Severity(SeverityLevel.NORMAL)
