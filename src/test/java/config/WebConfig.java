@@ -8,7 +8,6 @@ import org.aeonbits.owner.Config;
                 "classpath:${env}.properties"
         }
 )
-
 public interface WebConfig extends Config {
     @Key("browser")
     @DefaultValue("chrome")
@@ -27,7 +26,7 @@ public interface WebConfig extends Config {
     String baseUrl();
 
     @Key("isRemote")
-    @DefaultValue("false")
+    @DefaultValue("true")
     boolean isRemote();
 
     @Key("remoteUrl")
