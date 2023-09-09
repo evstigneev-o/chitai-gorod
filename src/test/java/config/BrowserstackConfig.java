@@ -16,7 +16,7 @@ public interface BrowserstackConfig extends Config {
     @DefaultValue("GvsVzaDY76sHyVY2fLnn")
     String key();
 
-    @Key("baseUrl")
+    @Key("baseBsUrl")
     @DefaultValue("http://hub.browserstack.com/wd/hub")
     String baseBsUrl();
 
