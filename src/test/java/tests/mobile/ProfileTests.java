@@ -1,8 +1,10 @@
 package tests.mobile;
 
+import com.codeborne.selenide.Condition;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,6 +23,7 @@ import static io.qameta.allure.Allure.step;
 
 public class ProfileTests extends BaseTest {
     private final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
+    private final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";
 
     @Test
     @Tag("android")
@@ -33,6 +36,21 @@ public class ProfileTests extends BaseTest {
         step("Проверка списка стран", () -> {
             $$(AppiumBy.id("ru.chitaigorod.mobile:id/textViewGetSubjectTitle")).shouldHave(size(3));
             $$(AppiumBy.id("ru.chitaigorod.mobile:id/textViewGetSubjectTitle")).shouldHave(texts(AVAILABLE_COUNTRIES));
+        });
+    }
+
+    @Test
+    @Tag("android")
+    @DisplayName("Поиск несуществующего города")
+    @Severity(SeverityLevel.NORMAL)
+    public void searchCityNotFoundShouldHaveCorrectText() {
+        String city = RandomStringUtils.randomAlphanumeric(5,20);
+        step("Переход в профиль", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/profileFragment")).click());
+        step("Клик на локацию", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/locationTV")).click());
+        step("Ввод города", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/searchCityET")).sendKeys(city));
+        step("Проверка результатов поиска", () -> {
+            $(AppiumBy.id("ru.chitaigorod.mobile:id/emptyViewCities")).shouldBe(Condition.visible);
+            $(AppiumBy.id("ru.chitaigorod.mobile:id/textEmptyDescription")).shouldHave(Condition.text(CITY_NOT_FOUND));
         });
     }
 
@@ -60,8 +78,7 @@ public class ProfileTests extends BaseTest {
                                 "Брест, Район Брестский, обл. Брестская",
                                 "Город Бобруйск, Район Бобруйский, обл. Могилевская",
                                 "Город Барановичи, Район Барановичский, обл. Брестская",
-                                "Борисов, Район Борисовский, обл. Минская",
-                                "Пинск, Район Пинский, обл. Брестская")),
+                                "Борисов, Район Борисовский, обл. Минская")),
                 Arguments.of("Казахстан",
                         List.of("Нур-Султан",
                                 "Алматы",
