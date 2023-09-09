@@ -8,7 +8,6 @@ import org.aeonbits.owner.Config;
                 "classpath:${env}.properties"
         }
 )
-
 public interface WebConfig extends Config {
     @Key("browser")
     @DefaultValue("chrome")
