@@ -103,7 +103,7 @@ gradle clean mobile_tests -DenvMobile=${ENV_MOBILE}
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
 <p align="center">
-<img src="images/screenshots/Jenkinsjob.png"/>
+<img src="images/screenshots/jenkinsjob.png"/>
 </p>
 
 <a id="allure"></a>
