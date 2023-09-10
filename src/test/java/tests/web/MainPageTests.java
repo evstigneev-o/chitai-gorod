@@ -19,6 +19,7 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("WEB")
 @Feature("Main Page")
+@Tag("ui")
 @DisplayName("Главная страница")
 public class MainPageTests extends BaseTest {
     private final List<String> NAVBAR_ITEMS = List.of("Акции", "Распродажа", "Школа-2023", "Подборки", "Читай-журнал", "Книжные циклы");
@@ -31,7 +32,6 @@ public class MainPageTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
-    @Tag("ui")
     @DisplayName("Проверка открытия главной страницы")
     public void successfullyOpenMainPage() {
         step("Открытие главной страницы", () -> mainPage.openPage());
@@ -40,7 +40,6 @@ public class MainPageTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.NORMAL)
-    @Tag("ui")
     @DisplayName("Проверка названий ссылок в навбаре")
     public void navbarItemsShouldHaveCorrectItemsNames() {
         step("Открытие главной страницы", () -> mainPage.openPage());
@@ -50,7 +49,6 @@ public class MainPageTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("ui")
     @DisplayName("Проверка перехода в корзину с главной страницы")
     public void cartPageShouldBeOpenedFromMainPage() {
         step("Открытие главной страницы", () -> mainPage.openPage());
@@ -61,7 +59,6 @@ public class MainPageTests extends BaseTest {
     @ParameterizedTest
     @ValueSource(strings = {"пенал", "карандаш"})
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("ui")
     @DisplayName("Переход на страницу результатов поиска с главной страницы")
     public void searchResultShouldContainCorrectProducts(String product) {
         step("Открытие главной страницы", () -> mainPage.openPage());

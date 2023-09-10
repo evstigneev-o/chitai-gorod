@@ -22,6 +22,7 @@ import static tests.api.specs.ResponseSpecs.*;
 
 @Epic("API")
 @Feature("Shopping Cart")
+@Tag("api")
 @DisplayName("Корзина")
 public class ShoppingCartTests extends BaseTest {
     private static final Integer PRODUCT_ID = 2638805;
@@ -31,7 +32,6 @@ public class ShoppingCartTests extends BaseTest {
     private static final String AUTH_REQUIRED = "Authorization обязательное поле";
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Добавление товара в корзину только с обязательными параметрами")
     public void addProductToCardWithRequiredParamsShouldReturn200() {
@@ -51,7 +51,6 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Добавление товара в корзину со всеми параметрами")
     public void addProductToCardWithAllParamsShouldReturn200() {
@@ -75,7 +74,6 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Запрос корзины нового пользователя")
     public void emptyCartShouldReturnEmptyProductList() {
@@ -95,7 +93,6 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Запрос корзины без авторизационного токена")
     public void getCartWithoutAuthShouldReturn401() {
@@ -113,7 +110,6 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Удаление товара из корзины")
     public void deleteProductFromCartShouldReturn204() {
@@ -150,7 +146,6 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    @Tag("api")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Удаление товара из корзины отсутствующего в ней товара")
     public void deleteNotAddedProductFromCartShouldReturn404() {

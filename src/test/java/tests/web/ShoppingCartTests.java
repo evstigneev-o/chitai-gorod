@@ -24,6 +24,7 @@ import static tests.api.tests.BaseTest.CART_PRODUCT_PATH;
 
 @Epic("WEB")
 @Feature("ShoppingCart")
+@Tag("ui")
 @DisplayName("Корзина")
 public class ShoppingCartTests extends BaseTest {
     private static final Integer PRODUCT_ID = 2638805;
@@ -31,7 +32,6 @@ public class ShoppingCartTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("ui")
     @DisplayName("Открытие пустой корзины")
     public void shoppingCartShouldBeEmpty() {
         step("Открытие корзины", () -> shoppingCartPage.openPage());
@@ -40,7 +40,6 @@ public class ShoppingCartTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("ui")
     @DisplayName("Открытие корзины c товарами")
     public void shoppingCartShouldHaveProducts() {
         String authCookieKey = "access-token";
@@ -71,7 +70,6 @@ public class ShoppingCartTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Tag("ui")
     @DisplayName("Очистка корзины")
     public void cartShouldBeEmptyAfterClearing() {
         String authCookieKey = "access-token";
