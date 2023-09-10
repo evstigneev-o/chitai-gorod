@@ -5,15 +5,13 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import models.AddToCardRequestModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Cookie;
 import pages.ShoppingCartPage;
-import models.AddToCardRequestModel;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static helpers.AddCookie.addAuthCookie;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -42,7 +40,6 @@ public class ShoppingCartTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Открытие корзины c товарами")
     public void shoppingCartShouldHaveProducts() {
-        String authCookieKey = "access-token";
         AddToCardRequestModel requestBody = AddToCardRequestModel.builder()
                 .id(PRODUCT_ID)
                 .build();
@@ -59,11 +56,7 @@ public class ShoppingCartTests extends BaseTest {
                         .log().all()
                         .spec(addProductToCartResponse200Spec)
         );
-        step("Добавление cookie в браузер", () -> {
-            Cookie authCookie = new Cookie(authCookieKey, authToken);
-            open("favicon.ico");
-            getWebDriver().manage().addCookie(authCookie);
-        });
+        step("Добавление cookie в браузер", () -> addAuthCookie(authToken));
         step("Открытие корзины", () -> shoppingCartPage.openPage());
         step("Проверка количества товаров в корзине", () -> assertThat(shoppingCartPage.getCartProductsItemsSize()).withFailMessage("Неверное количество товаров в корзине").isEqualTo(1));
     }
@@ -72,7 +65,6 @@ public class ShoppingCartTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Очистка корзины")
     public void cartShouldBeEmptyAfterClearing() {
-        String authCookieKey = "access-token";
         AddToCardRequestModel requestBody = AddToCardRequestModel.builder()
                 .id(PRODUCT_ID)
                 .build();
@@ -89,11 +81,7 @@ public class ShoppingCartTests extends BaseTest {
                         .log().all()
                         .spec(addProductToCartResponse200Spec)
         );
-        step("Добавление cookie в браузер", () -> {
-            Cookie authCookie = new Cookie(authCookieKey, authToken);
-            open("favicon.ico");
-            getWebDriver().manage().addCookie(authCookie);
-        });
+        step("Добавление cookie в браузер", () -> addAuthCookie(authToken));
         step("Открытие корзины", () -> shoppingCartPage.openPage());
         step("Очистка корзины", () -> shoppingCartPage.cleanUpCart());
         step("Проверка очистки корзины", () -> shoppingCartPage.checkCleanUp());

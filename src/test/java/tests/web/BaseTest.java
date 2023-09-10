@@ -16,7 +16,7 @@ import java.util.Map;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
-    static WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
+    private static final WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
 
     @BeforeAll
     static void setUp() {
