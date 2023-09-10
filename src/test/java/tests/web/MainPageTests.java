@@ -25,9 +25,9 @@ public class MainPageTests extends BaseTest {
     private final List<String> NAVBAR_ITEMS = List.of("Акции", "Распродажа", "Школа-2023", "Подборки", "Читай-журнал", "Книжные циклы");
     private final String SHOPPING_CART_TITLE = "КОРЗИНА";
 
-    MainPage mainPage = new MainPage();
-    ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
-    SearchResultPage searchResultPage = new SearchResultPage();
+    private MainPage mainPage = new MainPage();
+    private ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
+    private SearchResultPage searchResultPage = new SearchResultPage();
 
 
     @Test

@@ -45,7 +45,7 @@ public class BaseTest {
     public void afterEach() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        //Attach.browserConsoleLogs();
+        Attach.browserConsoleLogs();
         if(config.isRemote()){
             Attach.addVideoSelenoid();
         }

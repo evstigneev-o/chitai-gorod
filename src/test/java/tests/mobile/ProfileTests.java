@@ -27,8 +27,8 @@ import static io.qameta.allure.Allure.step;
 @Tag("android")
 @DisplayName("Профиль")
 public class ProfileTests extends BaseTest {
-    private final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
-    private final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";
+    private static final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
+    private static final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";
 
     @Test
     @DisplayName("Проверка списка стран присутствия сети магазинов")
