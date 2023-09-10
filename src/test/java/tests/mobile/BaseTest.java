@@ -19,6 +19,7 @@ public class BaseTest {
 
     @BeforeAll
     public static void setUp() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         if (mobileEnv.equals("android_remote")) {
             Configuration.browser = BrowserstackDriver.class.getName();
         } else {
@@ -29,8 +30,7 @@ public class BaseTest {
     }
 
     @BeforeEach
-    public void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    public void skipOnboarding() {
         open();
         step("Пропуск онбординга", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonSkip")).click()
@@ -40,7 +40,7 @@ public class BaseTest {
                     $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonNotNow")).click()
             );
         }
-        step("Выбор города", () ->
+        step("Выбор города по умолчанию", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonProceed")).click()
         );
         step("Пропуск регистрации", () ->

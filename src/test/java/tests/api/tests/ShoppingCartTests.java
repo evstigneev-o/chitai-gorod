@@ -1,5 +1,6 @@
 package tests.api.tests;
 
+import helpers.ApiAuthorization;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -12,7 +13,6 @@ import tests.api.models.AddToCardRequestModel;
 import tests.api.models.CartResponseModel;
 import tests.api.models.ErrorModel;
 
-import static helpers.ApiAuthorization.getAuthToken;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -38,7 +38,7 @@ public class ShoppingCartTests extends BaseTest {
         AddToCardRequestModel requestBody = AddToCardRequestModel.builder()
                 .id(PRODUCT_ID)
                 .build();
-        String authToken = step("Получение авторизационного токена", () -> getAuthToken());
+        String authToken = step("Получение авторизационного токена", ApiAuthorization::getAuthToken);
         step("Добавление товара в корзину", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)
@@ -62,7 +62,7 @@ public class ShoppingCartTests extends BaseTest {
                         .productShelf(PRODUCT_SHELF)
                         .build())
                 .build();
-        String authToken = step("Получение авторизационного токена", () -> getAuthToken());
+        String authToken = step("Получение авторизационного токена", ApiAuthorization::getAuthToken);
         step("Добавление товара в корзину", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)
@@ -79,7 +79,7 @@ public class ShoppingCartTests extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Запрос корзины нового пользователя")
     public void emptyCartShouldReturnEmptyProductList() {
-        String authToken = step("Получение авторизационного токена", () -> getAuthToken());
+        String authToken = step("Получение авторизационного токена", ApiAuthorization::getAuthToken);
         CartResponseModel response = step("Запрос корзины", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)
@@ -120,7 +120,7 @@ public class ShoppingCartTests extends BaseTest {
         AddToCardRequestModel requestBody = AddToCardRequestModel.builder()
                 .id(PRODUCT_ID)
                 .build();
-        String authToken = step("Получение авторизационного токена", () -> getAuthToken());
+        String authToken = step("Получение авторизационного токена", ApiAuthorization::getAuthToken);
         step("Добавление товара в корзину", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)
@@ -154,7 +154,7 @@ public class ShoppingCartTests extends BaseTest {
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("Удаление товара из корзины отсутствующего в ней товара")
     public void deleteNotAddedProductFromCartShouldReturn404() {
-        String authToken = step("Получение авторизационного токена", () -> getAuthToken());
+        String authToken = step("Получение авторизационного токена", ApiAuthorization::getAuthToken);
         ErrorModel response = step("Удаление товара из корзины", () ->
                 given(cartRequestSpec)
                         .header("authorization", authToken)

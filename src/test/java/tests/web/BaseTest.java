@@ -20,7 +20,6 @@ public class BaseTest {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        // Configuration.headless = true;
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = config.baseUrl();
         Configuration.browser = config.browser();
@@ -35,12 +34,6 @@ public class BaseTest {
             ));
             Configuration.browserCapabilities = capabilities;
         }
-//        ChromeOptions options = new ChromeOptions();
-//        options.setExperimentalOption("useAutomationExtension", false);
-//        options.addArguments("--disable-blink-features=AutomationControlled");
-//        DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-//        Configuration.browserCapabilities = capabilities;
     }
 
     @AfterEach

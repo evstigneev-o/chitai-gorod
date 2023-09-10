@@ -2,6 +2,8 @@ package tests.mobile;
 
 import com.codeborne.selenide.Condition;
 import io.appium.java_client.AppiumBy;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -20,7 +22,9 @@ import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
-
+@Epic("MOBILE")
+@Feature("Profile")
+@DisplayName("Профиль")
 public class ProfileTests extends BaseTest {
     private final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
     private final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";

@@ -1,12 +1,16 @@
 package helpers;
 
+import config.ApiConfig;
+import org.aeonbits.owner.ConfigFactory;
+
 import static io.restassured.RestAssured.given;
 
 public class ApiAuthorization {
+    static ApiConfig config = ConfigFactory.create(ApiConfig.class, System.getProperties());
     public static String getAuthToken(){
         return given()
                 .noFilters()
-                .get("https://www.chitai-gorod.ru/")
+                .get(config.baseUrl())
                 .then()
                 .extract().cookie("access-token").replace("%20", " ");
     }
