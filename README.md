@@ -86,12 +86,12 @@ Allure-отчет включает в себя:
 #### API
 
 ```
-./gradlew  clean api_tests
+./gradlew clean api_tests
 ```
 #### MOBILE
 
 ```
-./gradlew  clean mobile_tests -DenvMobile=${ENV_MOBILE}
+./gradlew clean mobile_tests -DenvMobile=${ENV_MOBILE}
 ```
 
 Для запуска мобильных тестов требуется дополнительно определить переменную `env_mobile`, с помощью которой
