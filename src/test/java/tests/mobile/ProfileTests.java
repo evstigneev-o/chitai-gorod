@@ -47,7 +47,7 @@ public class ProfileTests extends BaseTest {
     @DisplayName("Поиск несуществующего города")
     @Severity(SeverityLevel.NORMAL)
     public void searchCityNotFoundShouldHaveCorrectText() {
-        String city = RandomStringUtils.randomAlphanumeric(5, 20);
+        String city = RandomStringUtils.randomAlphanumeric(10, 20);
         step("Переход в профиль", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/profileFragment")).click());
         step("Клик на локацию", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/locationTV")).click());
         step("Ввод города", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/searchCityET")).sendKeys(city));
