@@ -107,7 +107,7 @@ gradle clean mobile_tests -DenvMobile=${ENV_MOBILE}
 </p>
 
 <a id="allure"></a>
-## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/017-Jenny_Ndbn-java-24-webinar-final-project/8/allure/"> Allure report </a>
+## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/o.evstigneev_diploma/34/allure/"> Allure report </a>
 
 ### Основное окно
 
