@@ -100,7 +100,7 @@ Allure-отчет включает в себя:
 ...
 
 <a id="jenkins"></a>
-## Запуск тестов в <a target="_blank" href="https://jenkins.autotests.cloud/job/o.evstigneev_diploma/"> Jenkins </a>
+## Запуск тестов в <a target="_blank" href="https://jenkins.autotests.cloud/job/o.evstigneev_chitai-gorod/"> Jenkins </a>
 
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
@@ -109,7 +109,7 @@ Allure-отчет включает в себя:
 </p>
 
 <a id="allure"></a>
-## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/o.evstigneev_diploma/34/allure/"> Allure report </a>
+## Отчеты в <a target="_blank" href="https://jenkins.autotests.cloud/job/o.evstigneev_chitai-gorod/47/allure/"> Allure report </a>
 
 ### Основное окно
 
