@@ -26,7 +26,7 @@ import static tests.api.tests.BaseTest.CART_PRODUCT_PATH;
 @Feature("ShoppingCart")
 @DisplayName("Корзина")
 public class ShoppingCartTests extends BaseTest {
-    private static final Integer PRODUCT_ID = 2794526;
+    private static final Integer PRODUCT_ID = 2638805;
     ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
 
     @Test
