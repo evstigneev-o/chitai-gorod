@@ -5,7 +5,6 @@ import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -45,7 +44,7 @@ public class ProfileTests extends BaseTest {
     @DisplayName("Поиск несуществующего города")
     @Severity(SeverityLevel.NORMAL)
     public void searchCityNotFoundShouldHaveCorrectText() {
-        String city = RandomStringUtils.randomAlphanumeric(5,20);
+        String city = RandomStringUtils.randomAlphanumeric(5, 20);
         step("Переход в профиль", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/profileFragment")).click());
         step("Клик на локацию", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/locationTV")).click());
         step("Ввод города", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/searchCityET")).sendKeys(city));
@@ -57,7 +56,6 @@ public class ProfileTests extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("getCitiesByCountry")
-    @Disabled
     @Tag("android")
     @DisplayName("Проверка списка городов по странам присутствия")
     @Severity(SeverityLevel.NORMAL)
@@ -80,7 +78,8 @@ public class ProfileTests extends BaseTest {
                                 "Брест, Район Брестский, обл. Брестская",
                                 "Город Бобруйск, Район Бобруйский, обл. Могилевская",
                                 "Город Барановичи, Район Барановичский, обл. Брестская",
-                                "Борисов, Район Борисовский, обл. Минская")),
+                                "Борисов, Район Борисовский, обл. Минская",
+                                "Пинск, Район Пинский, обл. Брестская")),
                 Arguments.of("Казахстан",
                         List.of("Нур-Султан",
                                 "Алматы",

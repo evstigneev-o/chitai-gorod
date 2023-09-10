@@ -25,11 +25,11 @@ public interface BrowserstackConfig extends Config {
     String app();
 
     @Key("device")
-    @DefaultValue("Google Pixel 3")
+    @DefaultValue("Google Pixel 6 Pro")
     String device();
 
     @Key("osVersion")
-    @DefaultValue("9.0")
+    @DefaultValue("12.0")
     String osVersion();
 
     @Key("project")

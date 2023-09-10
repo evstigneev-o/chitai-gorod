@@ -15,7 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class BaseTest {
-    public static String mobileEnv = System.getProperty("envMobile","android_remote");
+    public static String mobileEnv = System.getProperty("envMobile", "android_remote");
+
     @BeforeAll
     public static void setUp() {
         if (mobileEnv.equals("android_remote")) {
@@ -34,9 +35,11 @@ public class BaseTest {
         step("Пропуск онбординга", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonSkip")).click()
         );
-//        step("Пропуск включения уведомлений", () ->
-//                $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonNotNow")).click()
-//        );
+        if (mobileEnv.equals("android_local")) {
+            step("Пропуск включения уведомлений", () ->
+                    $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonNotNow")).click()
+            );
+        }
         step("Выбор города", () ->
                 $(AppiumBy.id("ru.chitaigorod.mobile:id/buttonProceed")).click()
         );
@@ -47,12 +50,11 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
-        //Attach.screenshotAs("Last screenshot");
-        //Attach.pageSource();
+        String sessionId = sessionId().toString();
+        Attach.pageSource();
         closeWebDriver();
-//        if(mobileEnv.equals("android_remote")){
-//            String sessionId = sessionId().toString();
-//            Attach.addVideo(sessionId);
-//        }
+        if (mobileEnv.equals("android_remote")) {
+            Attach.addVideoBrowserstack(sessionId);
+        }
     }
 }
