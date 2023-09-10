@@ -12,9 +12,8 @@ public class MainPage {
             logoIcon = $(".header-logo__icon"),
             shoppingCart = $("[href=\"/cart\"]"),
             searchInput = $(".header-search__input");
-    ElementsCollection
-            navBarItems = $$(".header-bottom__link"),
-            searchResults = $$(".product-card");
+    private final ElementsCollection
+            navBarItems = $$(".header-bottom__link");
 
     public void openPage() {
         open("");

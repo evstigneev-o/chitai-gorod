@@ -17,7 +17,7 @@ import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 
 public class AndroidLocalDriver implements WebDriverProvider {
-    static EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
+    private static final EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
 
     @Nonnull
     @Override

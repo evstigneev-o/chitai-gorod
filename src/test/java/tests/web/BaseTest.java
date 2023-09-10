@@ -8,6 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
@@ -19,7 +20,6 @@ public class BaseTest {
 
     @BeforeAll
     static void setUp() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = config.baseUrl();
         Configuration.browser = config.browser();
@@ -36,12 +36,19 @@ public class BaseTest {
         }
     }
 
+    @BeforeEach
+    public void addListener(){
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
     @AfterEach
-    void afterEach() {
+    public void afterEach() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideoSelenoid();
+        //Attach.browserConsoleLogs();
+        if(config.isRemote()){
+            Attach.addVideoSelenoid();
+        }
         closeWebDriver();
     }
 }

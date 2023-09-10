@@ -10,11 +10,11 @@ import org.aeonbits.owner.Config;
 )
 public interface WebConfig extends Config {
     @Key("browser")
-    @DefaultValue("chrome")
+    @DefaultValue("firefox")
     String browser();
 
     @Key("browserVersion")
-    @DefaultValue("114.0")
+   // @DefaultValue("100.0")
     String browserVersion();
 
     @Key("browserSize")
@@ -26,7 +26,7 @@ public interface WebConfig extends Config {
     String baseUrl();
 
     @Key("isRemote")
-    @DefaultValue("true")
+    @DefaultValue("false")
     boolean isRemote();
 
     @Key("remoteUrl")

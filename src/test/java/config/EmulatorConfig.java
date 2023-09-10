@@ -2,10 +2,6 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
-@Config.Sources({
-        "classpath:config/${androidEnv}.properties"
-})
 public interface EmulatorConfig extends Config {
     @Key("appiumServer")
     @DefaultValue("http://127.0.0.1:4723/wd/hub")
