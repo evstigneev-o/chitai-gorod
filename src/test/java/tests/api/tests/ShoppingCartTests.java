@@ -24,7 +24,7 @@ import static tests.api.specs.ResponseSpecs.*;
 @Feature("Shopping Cart")
 @DisplayName("Корзина")
 public class ShoppingCartTests extends BaseTest {
-    private static final Integer PRODUCT_ID = 2794526;
+    private static final Integer PRODUCT_ID = 2638805;
     private static final String ITEM_LIST_NAME = "index";
     private static final String PRODUCT_SHELF = "Лучшие из лучших";
     private static final String PRODUCT_NOT_FOUND = "товар в корзине не найден";
