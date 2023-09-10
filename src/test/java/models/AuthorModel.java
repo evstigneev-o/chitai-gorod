@@ -1,13 +1,15 @@
-package tests.api.models;
+package models;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CategoryModel {
+public class AuthorModel {
     private Integer id;
-    private String title;
+    private String firstName;
+    private String middleName;
+    private String lastName;
     private String url;
-    private String slug;
+    private Boolean isForeignAgent;
 }
