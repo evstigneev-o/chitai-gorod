@@ -10,13 +10,13 @@ import org.junit.jupiter.api.BeforeAll;
 import static helpers.CustomApiListener.withCustomTemplates;
 
 public class BaseTest {
-    static ApiConfig config = ConfigFactory.create(ApiConfig.class, System.getProperties());
+    private static final ApiConfig config = ConfigFactory.create(ApiConfig.class, System.getProperties());
     public static final String BASE_API_URL = config.baseApiUrl();
     public static final String CART_PATH = "cart";
     public static final String CART_PRODUCT_PATH = "product";
 
     @BeforeAll
-    static void setUp() {
+    public static void setUp() {
         RestAssured.baseURI = BASE_API_URL;
         RestAssured.filters(withCustomTemplates(), new ResponseLoggingFilter(), new RequestLoggingFilter());
     }

@@ -15,12 +15,12 @@ import static io.qameta.allure.Allure.step;
 
 @Epic("MOBILE")
 @Feature("ShoppingCart")
+@Tag("android")
 @DisplayName("Корзина")
 public class ShoppingCartTests extends BaseTest {
-    private final String EMPTY_CART_DESCRIPTION = "Ваша корзина сейчас пуста. Перейдите в каталог, чтобы найти интересные книги.";
+    private static final String EMPTY_CART_DESCRIPTION = "Ваша корзина сейчас пуста. Перейдите в каталог, чтобы найти интересные книги.";
 
     @Test
-    @Tag("android")
     @DisplayName("Открытие пустой корзины")
     @Severity(SeverityLevel.CRITICAL)
     public void shoppingCartShouldBeEmpty() {

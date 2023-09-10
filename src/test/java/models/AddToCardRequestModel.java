@@ -1,4 +1,4 @@
-package tests.api.models;
+package models;
 
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.Builder;

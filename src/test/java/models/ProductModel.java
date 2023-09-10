@@ -1,6 +1,5 @@
-package tests.api.models;
+package models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;

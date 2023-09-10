@@ -24,13 +24,13 @@ import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 @Epic("MOBILE")
 @Feature("Profile")
+@Tag("android")
 @DisplayName("Профиль")
 public class ProfileTests extends BaseTest {
-    private final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
-    private final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";
+    private static final List<String> AVAILABLE_COUNTRIES = List.of("Беларусь", "Казахстан", "Россия");
+    private static final String CITY_NOT_FOUND = "Город не найден. Проверьте, правильно ли написано название";
 
     @Test
-    @Tag("android")
     @DisplayName("Проверка списка стран присутствия сети магазинов")
     @Severity(SeverityLevel.NORMAL)
     public void changeLocationShouldHave3Countries() {
@@ -44,7 +44,6 @@ public class ProfileTests extends BaseTest {
     }
 
     @Test
-    @Tag("android")
     @DisplayName("Поиск несуществующего города")
     @Severity(SeverityLevel.NORMAL)
     public void searchCityNotFoundShouldHaveCorrectText() {
@@ -60,14 +59,13 @@ public class ProfileTests extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("getCitiesByCountry")
-    @Tag("android")
     @DisplayName("Проверка списка городов по странам присутствия")
     @Severity(SeverityLevel.NORMAL)
     public void countriesShouldHaveCorrectCountryList(String country, List<String> cities) {
         step("Переход в профиль", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/profileFragment")).click());
         step("Клик на локацию", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/locationTV")).click());
         step("Переход к списку стран", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/selectCountyTV")).click());
-        step("Выбор страны", () -> $(AppiumBy.xpath(".//android.widget.TextView[@text='" + country + "']"))).click();
+        step("Выбор страны", () -> $(AppiumBy.xpath(".//android.widget.TextView[@text='" + country + "']")).click());
         step("Проверка списка городов", () -> $$(AppiumBy.id("ru.chitaigorod.mobile:id/textViewGetSubjectTitle")).shouldHave(texts(cities)));
     }
 
