@@ -77,19 +77,22 @@ Allure-отчет включает в себя:
 #### WEB
 
 ```
-gradle clean ui_tests 
-```
+./gradlew clean ui_tests Denv=local{ENV}
+
+Для запуска браузерных тестов требуется дополнительно определить переменную `env`, с помощью которой
+можно переключаться между локальным и удалённым запуском тестов с параметрами по умолчанию. (_`-Denv=remote`
+для удалённого запуска тестов на Selenoid, `-Denv=local` - для локального запуска_).
 
 #### API
 
 ```
-gradle clean api_tests 
+./gradlew  clean api_tests
 ```
 
 #### MOBILE
 
 ```
-gradle clean mobile_tests -DenvMobile=${ENV_MOBILE}
+./gradlew  clean mobile_tests -DenvMobile=${ENV_MOBILE}
 ```
 
 Для запуска мобильных тестов требуется дополнительно определить переменную `env_mobile`, с помощью которой

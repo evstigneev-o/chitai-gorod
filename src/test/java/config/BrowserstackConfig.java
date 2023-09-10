@@ -2,10 +2,6 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
-@Config.Sources({
-        "classpath:config/${androidEnv}.properties"
-})
 public interface BrowserstackConfig extends Config {
 
     @Key("user")

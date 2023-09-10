@@ -65,7 +65,7 @@ public class ProfileTests extends BaseTest {
         step("Переход в профиль", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/profileFragment")).click());
         step("Клик на локацию", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/locationTV")).click());
         step("Переход к списку стран", () -> $(AppiumBy.id("ru.chitaigorod.mobile:id/selectCountyTV")).click());
-        step("Выбор страны", () -> $(AppiumBy.xpath(".//android.widget.TextView[@text='" + country + "']"))).click();
+        step("Выбор страны", () -> $(AppiumBy.xpath(".//android.widget.TextView[@text='" + country + "']")).click());
         step("Проверка списка городов", () -> $$(AppiumBy.id("ru.chitaigorod.mobile:id/textViewGetSubjectTitle")).shouldHave(texts(cities)));
     }
 
